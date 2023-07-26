@@ -33,7 +33,7 @@ class Dailysail10 {
 }
 
 class Data {
-    int total;
+    double total;
     int userCount;
     int ownerCount;
     int expiredCount;
@@ -50,7 +50,7 @@ class Data {
     });
 
     factory Data.fromJson(Map<String, dynamic> json) => Data(
-        total: json["total"],
+        total: json["total"]?.toDouble(),
         userCount: json["userCount"],
         ownerCount: json["ownerCount"],
         expiredCount: json["expiredCount"],

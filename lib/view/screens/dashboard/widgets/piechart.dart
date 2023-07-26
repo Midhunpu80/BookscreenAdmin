@@ -9,7 +9,10 @@ Widget piecha() {
   final sta = Get.put(status_service());
   return Obx(
     () => sta.isLoading.value
-        ? const Center(child: CircularProgressIndicator())
+        ? Center(
+            child: CircularProgressIndicator(
+            color: re,
+          ))
         : Card(
             child: Padding(
               padding: const EdgeInsets.all(10.0),

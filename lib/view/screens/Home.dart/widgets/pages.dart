@@ -1,8 +1,7 @@
+import 'package:admin/constants/routes/routes.dart';
 import 'package:admin/service/Admin/dailysail/dailysail.dart';
-import 'package:admin/utils/colors.dart';
-import 'package:admin/view/screens/Home.dart/home.dart';
+
 import 'package:admin/view/screens/Home.dart/widgets/icon.dart';
-import 'package:admin/view/screens/dashboard/dashboard.dart';
 import 'package:admin/view/screens/dashboard/widgets/sailstimes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,11 +20,11 @@ Widget pages() {
           mainAxisSpacing: 15,
           childAspectRatio: 1.2),
       itemBuilder: (context, index) {
-        return InkWell(
+        return GestureDetector(
           onTap: () {
             sail.getdailysail();
             month.getmonthsail();
-            Get.to(() => Dashborad());
+            Get.to( routes[index]);
           },
           child: Card(
             shadowColor: Colors.grey,

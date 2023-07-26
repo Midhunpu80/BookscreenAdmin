@@ -9,12 +9,12 @@ import 'package:sizer/sizer.dart';
 
 final sail = Get.put(daily_service());
 List datas = [
-  jat.toString(),
-  sail.reply.data.userCount.toString(),
-  sail.reply.data.ownerCount.toString(),
-  sail.reply.data.movieCount.toString(),
-  sail.reply.data.activeCount.toString(),
-  sail.reply.data.expiredCount.toString()
+  month.reply.data[4].toString(),
+  sail.reply?.data.userCount.toString(),
+  sail.reply?.data.ownerCount.toString(),
+  sail.reply?.data.movieCount.toString(),
+  sail.reply?.data.activeCount.toString(),
+  sail.reply?.data.expiredCount.toString()
 ];
 
 Widget revenusatus() {
@@ -50,7 +50,7 @@ Widget revenusatus() {
         ),
       );
     },
-    itemCount: 6,
+    itemCount: datas.length,
   );
 }
 

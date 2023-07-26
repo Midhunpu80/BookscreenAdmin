@@ -26,7 +26,7 @@ Widget sailstime() {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              dailysail(re, "Daily sail", sail.reply.data.total.toString()),
+              dailysail(re, "Daily sail", sail.reply!.data.total.toString()),
               dailysail(blu, "Monthly sail", month.reply.data[4].toString()),
               dailysail(gr, 'Yearly sail', jat.toString()),
             ],

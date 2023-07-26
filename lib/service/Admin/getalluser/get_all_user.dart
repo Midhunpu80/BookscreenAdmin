@@ -2,28 +2,30 @@
 
 import 'package:admin/constants/urls/endpoints.dart';
 import 'package:admin/constants/urls/token.dart';
-import 'package:admin/model/admin/dailysail/dailydail10.dart';
+import 'package:admin/model/admin/getalluser/getalluser.dart';
+
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 dynamic jwt;
 
-class daily_service extends GetxController {
+class getalluser_service extends GetxController {
   var isLoading = false.obs;
 
- Dailysail10? reply;
-  getdailysail() async {
+  late Getalluser10 reply;
+  getalluser() async {
     try {
       isLoading(true);
       end j = end();
-      final response = await http.get(Uri.parse(j.daily_url), headers: {
+      final response = await http.get(Uri.parse(j.getuserurl), headers: {
         'Content-Type': 'application/json;charset=utf-8',
         'Accept': 'application/json',
-        'Authorization': 'Bearer $token'
+      'Authorization': 'Bearer $token'
       });
 
       if (response.statusCode == 200) {
-        reply = dailysail10FromJson(response.body.toString());
+        reply = getalluser10FromJson(response.body.toString());
+        print(reply.data.toString());
         // "<---movies----${reply.data.map((e) => e.movieId).toList().toString()}------->");
 
         update();
@@ -41,8 +43,7 @@ class daily_service extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
-    getdailysail();
+    getalluser();
   }
 }
