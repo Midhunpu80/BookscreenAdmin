@@ -6,18 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-List<String> owner_header = [
+List<String> owner_headers = [
   "No",
   "Name",
   "Email",
   "Phone",
   "AdharId",
   "Theater Licence",
-  "Location",
-  "Id Proof"
+
 ];
 
-class view_ownerDetails extends StatelessWidget {
+class viewM_ownerDetails extends StatelessWidget {
   var no;
   var nam;
   var email;
@@ -27,7 +26,7 @@ class view_ownerDetails extends StatelessWidget {
   var adh;
   var img;
   // ignore: use_key_in_widget_constructors
-  view_ownerDetails(
+  viewM_ownerDetails(
       {required this.no,
       required this.nam,
       required this.email,
@@ -74,26 +73,24 @@ class view_ownerDetails extends StatelessWidget {
                 child: Row(
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    owner_head(),
+                    owners_head(),
                     Padding(
                       padding: EdgeInsets.only(top: 21, left: 2.h),
                       child: Column(
                         children: [
-                          accesor(txt: no),
+                          accesors(txt: no),
                           siz(),
-                          accesor(txt: nam),
+                          accesors(txt: nam),
                           siz(),
-                          accesor(txt: email),
+                          accesors(txt: email),
                           siz(),
-                          accesor(txt: ph),
+                          accesors(txt: ph),
                           siz(),
-                          accesor(txt: adh),
+                          accesors(txt: adh),
                           siz(),
-                          accesor(txt: thet),
+                          accesors(txt: thet),
                           siz(),
-                          accesor(txt: loc),
-                          siz(),
-                          adharid(img: img, context: context),
+                        
                         ],
                       ),
                     )
@@ -108,7 +105,7 @@ class view_ownerDetails extends StatelessWidget {
   }
 }
 
-Widget owner_head() {
+Widget owners_head() {
   return Container(
     height: 100.h,
     width: 30.w,
@@ -125,7 +122,7 @@ Widget owner_head() {
                   border: Border.all(width: 0.h, color: bl)),
               child: Center(
                 child: alltext(
-                    txt: owner_header[index],
+                    txt: owner_headers[index],
                     col: wh,
                     siz: 8.sp,
                     wei: FontWeight.bold,
@@ -138,11 +135,11 @@ Widget owner_head() {
           // ignore: prefer_const_constructors
           return SizedBox();
         },
-        itemCount: 8),
+        itemCount: 6),
   );
 }
 
-Widget accesor({required var txt}) {
+Widget accesors({required var txt}) {
   return Container(
       height: 6.h,
       width: 50.w,
@@ -153,20 +150,7 @@ Widget accesor({required var txt}) {
       ));
 }
 
-Widget adharid({required var img, required BuildContext context}) {
-  return InkWell(
-    onTap: () {
-      showimg(context, img);
-    },
-    child: Container(
-      height: 9.h,
-      width: 20.w,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(1.h),
-          image: DecorationImage(image: NetworkImage(img))),
-    ),
-  );
-}
+
 
 Widget siz() {
   return SizedBox(
@@ -174,30 +158,3 @@ Widget siz() {
   );
 }
 
-showimg(BuildContext context, var img) {
-  return showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          actions: [
-            TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: alltext(
-                    txt: "Back",
-                    col: re,
-                    siz: 12.sp,
-                    wei: FontWeight.bold,
-                    max: 1))
-          ],
-          content: Container(
-            height: 40.h,
-            width: 150.w,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(img), fit: BoxFit.fill)),
-          ),
-        );
-      });
-}

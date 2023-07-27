@@ -3,8 +3,8 @@
 import 'package:admin/service/Admin/getowners/getowners/getowners.dart';
 import 'package:admin/utils/colors.dart';
 import 'package:admin/utils/text.dart';
-import 'package:admin/view/screens/ownerapprovel/widgets/approve.dart';
-import 'package:admin/view/screens/ownerapprovel/widgets/view.dart';
+import 'package:admin/view/screens/ownermanagement/widgets/block_owner.dart';
+import 'package:admin/view/screens/ownermanagement/widgets/view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +12,8 @@ import 'package:sizer/sizer.dart';
 
 final ow = Get.put(getallowner_service());
 
-Widget the_ownerlist(BuildContext context) {
+
+Widget manage_ownerlist(BuildContext context) {
   return Container(
     height: 89.h,
     width: 100.w,
@@ -69,8 +70,8 @@ Widget the_ownerlist(BuildContext context) {
                             SizedBox(
                               width: 5.w,
                             ),
-                            approve_button(
-                                id: os.id[index],
+                            blocked_owner_button(
+                                id: os.id,
                                 context: context,
                                 index: index)
                             // blockbutton(id: "", context: context, index: 0)
@@ -105,8 +106,7 @@ Widget owner_viewbutton(
   return InkWell(
     splashColor: bl,
     onTap: () {
-      ow.getallowner_approve(id: no);
-      Get.to(() => view_ownerDetails(
+      Get.to(() => viewM_ownerDetails(
             no: no,
             nam: nam,
             email: email,

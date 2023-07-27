@@ -1,6 +1,5 @@
 import 'package:admin/view/screens/Home.dart/home.dart';
-import 'package:admin/view/screens/ownerapprovel/ownerapprovel.dart';
-import 'package:admin/view/screens/ownerapprovel/widgets/view.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get_navigation/src/root/get_material_app.dart';

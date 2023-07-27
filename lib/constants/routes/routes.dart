@@ -8,12 +8,12 @@ import 'package:admin/view/screens/userorder/userorder.dart';
 
 List routes = [
   Dashborad(),
- // ignore: prefer_const_constructors
+ 
  moviemanagement(),
   usermanagement(),
-  moviemanagement(),
-   ownerapproval(),
   ownermanagement(),
+   ownerapproval(),
+ usermanagement(),
   userorder(),
 sailsReport()
 ];

@@ -1,5 +1,10 @@
+// ignore_for_file: non_constant_identifier_names, avoid_single_cascade_in_expression_statements
+
 import 'package:admin/utils/colors.dart';
 import 'package:admin/utils/text.dart';
+import 'package:admin/view/screens/ownerapprovel/ownerapprovel.dart';
+import 'package:admin/view/screens/ownerapprovel/widgets/ownerslist.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -10,14 +15,30 @@ Widget approve_button({
   required var index,
 }) {
   return InkWell(
-      onTap: () {},
+      splashColor: gy,
+      onTap: () {
+        AwesomeDialog(
+          context: context,
+          dialogType: DialogType.WARNING,
+          animType: AnimType.BOTTOMSLIDE,
+          title: 'Are your Sure',
+          desc: 'you giving the Approval to the theater owner',
+          btnCancelOnPress: () async {
+            ow.getowner_denied(id: id.toString());
+            Get.to(() => ownerapproval());
+          },
+          btnOkOnPress: () async {
+            ow.getallowner_approve(id: id.toString());
+          },
+        )..show();
+      },
       child: Container(
         width: 20.h,
         height: 12.h,
         color: blu,
         child: Center(
             child: alltext(
-                txt: "pending",
+                txt: ow.reply.data[index].status.toString(),
                 col: wh,
                 siz: 20.sp,
                 wei: FontWeight.bold,
@@ -25,7 +46,6 @@ Widget approve_button({
       ));
 }
 
-// ignore: non_constant_identifier_names
 block_messege({required var tit, required var mess, required Color col}) {
   Get.snackbar(tit, mess,
       backgroundColor: col,

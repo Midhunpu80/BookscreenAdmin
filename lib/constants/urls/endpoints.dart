@@ -15,5 +15,9 @@ class end {
   String blockuser_url = "${adminurl}block-user";
   String unblock_url = "${adminurl}unblock-user";
   String getall_owner_url = "${adminurl}adminowner";
+  String owner_approve_url = "${adminurl}ownerApprove";
+  String owner_denied_url = "${adminurl}ownerDenied";
+  String owner_block_url = "${adminurl}blockOwner";
+  String owner_unblock_url = "${adminurl}unblockOwner";
   
 }
