@@ -4,7 +4,6 @@ import 'package:admin/service/Admin/getowners/getowners/getowners.dart';
 import 'package:admin/service/Admin/getowners/getowners/ownerblock.dart';
 import 'package:admin/utils/colors.dart';
 import 'package:admin/utils/text.dart';
-import 'package:admin/view/screens/ownerapprovel/widgets/ownerslist.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 
 import 'package:flutter/material.dart';

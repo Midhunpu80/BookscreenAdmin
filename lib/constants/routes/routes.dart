@@ -13,7 +13,6 @@ List routes = [
   usermanagement(),
   ownermanagement(),
    ownerapproval(),
- usermanagement(),
   userorder(),
 sailsReport()
 ];

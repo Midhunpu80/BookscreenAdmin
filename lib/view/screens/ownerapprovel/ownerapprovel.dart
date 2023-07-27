@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, camel_case_types
+
 import 'package:admin/utils/colors.dart';
 import 'package:admin/utils/text.dart';
 import 'package:admin/view/screens/ownerapprovel/widgets/ownerslist.dart';
@@ -29,8 +31,9 @@ class ownerapproval extends StatelessWidget {
               max: 1),
         ),
         body: Obx(
-          () => og.isLoading.value
-              ?  const Center(child: CircularProgressIndicator())
+          // ignore: unnecessary_null_comparison
+          () => og.isLoading.value || og.reply.data == null
+              ? const Center(child: CircularProgressIndicator())
               : SingleChildScrollView(
                   child: Column(
                     children: [

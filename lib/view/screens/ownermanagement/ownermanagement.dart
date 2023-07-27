@@ -11,10 +11,11 @@ import 'package:sizer/sizer.dart';
 final og = Get.put(getallowner_service());
 
 class ownermanagement extends StatelessWidget {
+  final con = Get.put(getallowner_service());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bl   ,
+        backgroundColor: bl,
         appBar: AppBar(
           toolbarHeight: 10.h,
           title: alltext(
@@ -27,16 +28,16 @@ class ownermanagement extends StatelessWidget {
           centerTitle: true,
         ),
         // ignore: prefer_const_constructors
-        body: Obx(
-          () => og.isLoading.value
-              ? const  Center(child: CircularProgressIndicator())
-              : SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      manage_ownerlist(context),
-                    ],
-                  ),
-                ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Obx(
+                () => con.isLoading.value || con.reply.data.isEmpty
+                    ? const Center(child: CircularProgressIndicator())
+                    : manage_ownerlist(context),
+              ),
+            ],
+          ),
         ));
   }
 }

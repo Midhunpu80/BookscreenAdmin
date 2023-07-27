@@ -12,7 +12,6 @@ import 'package:sizer/sizer.dart';
 
 final ow = Get.put(getallowner_service());
 
-
 Widget manage_ownerlist(BuildContext context) {
   return Container(
     height: 89.h,
@@ -71,9 +70,7 @@ Widget manage_ownerlist(BuildContext context) {
                               width: 5.w,
                             ),
                             blocked_owner_button(
-                                id: os.id,
-                                context: context,
-                                index: index)
+                                id: os.id, context: context, index: index)
                             // blockbutton(id: "", context: context, index: 0)
                           ],
                         ),

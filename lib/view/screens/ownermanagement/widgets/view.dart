@@ -13,7 +13,6 @@ List<String> owner_headers = [
   "Phone",
   "AdharId",
   "Theater Licence",
-
 ];
 
 class viewM_ownerDetails extends StatelessWidget {
@@ -90,7 +89,6 @@ class viewM_ownerDetails extends StatelessWidget {
                           siz(),
                           accesors(txt: thet),
                           siz(),
-                        
                         ],
                       ),
                     )
@@ -150,11 +148,8 @@ Widget accesors({required var txt}) {
       ));
 }
 
-
-
 Widget siz() {
   return SizedBox(
     height: 2.h,
   );
 }
-

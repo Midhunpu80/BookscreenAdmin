@@ -19,5 +19,6 @@ class end {
   String owner_denied_url = "${adminurl}ownerDenied";
   String owner_block_url = "${adminurl}blockOwner";
   String owner_unblock_url = "${adminurl}unblockOwner";
+  String user_order_url = "${adminurl}get-allOrders";
   
 }

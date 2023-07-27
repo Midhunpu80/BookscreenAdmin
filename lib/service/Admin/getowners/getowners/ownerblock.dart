@@ -1,11 +1,10 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, camel_case_types
 
 import 'dart:convert';
 
 import 'package:admin/constants/urls/endpoints.dart';
 import 'package:admin/constants/urls/token.dart';
-import 'package:admin/view/screens/ownerapprovel/widgets/ownerslist.dart';
-import 'package:admin/view/screens/ownermanagement/ownermanagement.dart';
+
 import 'package:admin/view/screens/ownermanagement/widgets/block_owner.dart';
 
 import 'package:get/get.dart';
@@ -88,7 +87,6 @@ class owner_block_service extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     getallowner_block(id: "");
     getallowner_unblock(id: "");

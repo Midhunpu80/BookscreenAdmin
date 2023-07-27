@@ -1,4 +1,5 @@
-import 'package:admin/utils/colors.dart';
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:admin/view/screens/dashboard/widgets/appbar.dart';
 import 'package:admin/view/screens/dashboard/widgets/revenu.dart';
 import 'package:admin/view/screens/dashboard/widgets/sailstimes.dart';
