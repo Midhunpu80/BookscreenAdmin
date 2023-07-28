@@ -17,6 +17,7 @@ class get_userorder_service extends GetxController {
   late Getorders10 reply;
 
   RxMap<String, dynamic> dat = RxMap<String, dynamic>({});
+  RxList<dynamic> da = RxList<dynamic>();
 
   getuserorder() async {
     try {
@@ -31,6 +32,9 @@ class get_userorder_service extends GetxController {
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);
         reply = Getorders10.fromJson(data);
+        da.add(reply.data.map((e) =>
+            e.selectedSeats.toList().toString()));
+        print(da);
 
         ///  dat({"one": reply.data.map((e) => e.name)});
         print(

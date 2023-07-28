@@ -22,11 +22,11 @@ class movie_add_service extends GetxController {
       required var img}) async {
     final bdy = {
       "movieDetails": {
-        "id": id,
-        "title": tit,
-        "original_language": lang,
-        "release_date": rel,
-        "poster_path": img,
+        "id": id.toString(),
+        "title": tit.toString(),
+        "original_language": lang.toString(),
+        "release_date": rel.toString(),
+        "poster_path": img.toString(),
       },
     };
     try {

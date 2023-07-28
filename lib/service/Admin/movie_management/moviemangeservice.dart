@@ -16,6 +16,8 @@ class movie_manage_service extends GetxController {
   late Movielist10 reply;
 
   RxMap<String, dynamic> dat = RxMap<String, dynamic>({});
+  RxList<dynamic> tit = [].obs;
+  RxList<dynamic> pos = [].obs;
 
   getmovielist() async {
     try {
@@ -31,10 +33,10 @@ class movie_manage_service extends GetxController {
         var data = jsonDecode(response.body);
         reply = Movielist10.fromJson(data);
         print(reply.data.toString());
+        tit.addAll(reply.data.map((e) => e.title).toList());
+        pos.addAll(reply.data.map((e) => e..image).toList());
+
         // "<---movies----${reply.data.map((e) => e.movieId).toList().toString()}------->");
-        dat.addAll({
-          "key1": reply.data.map((e) => e.title).toList(),
-        });
 
         update();
         isLoading(false);
@@ -48,6 +50,13 @@ class movie_manage_service extends GetxController {
       throw Exception("Failed");
     }
   }
+
+  // updation() {
+  //   // "<---movies----${reply.data.map((e) => e.movieId).toList().toString()}------->");
+  //   dat["tit"] = reply.data.map((e) => e.title).toList();
+  //   dat["img"] = reply.data.map((e) => e.image.toString()).toList();
+  //   update();
+  // }
 
   @override
   void onInit() {

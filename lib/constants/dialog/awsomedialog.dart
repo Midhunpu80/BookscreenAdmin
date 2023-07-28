@@ -18,7 +18,7 @@ awsome(BuildContext context, var index) {
     },
     btnOkOnPress: () async {
       await delete.get_Delete_movielist(
-          id: list.reply.data[index].movieId.toString(),
+         
           ids: list.reply.data[index].id.toString());
     },
   )..show();

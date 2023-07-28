@@ -1,4 +1,7 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:admin/constants/dialog/awsomedialog.dart';
+import 'package:admin/service/Admin/movie_management/deletemovie.dart';
 import 'package:admin/service/Admin/movie_management/moviemangeservice.dart';
 import 'package:admin/utils/colors.dart';
 import 'package:admin/utils/text.dart';
@@ -10,6 +13,7 @@ import 'package:sizer/sizer.dart';
 // ignore: non_constant_identifier_names
 Widget list_movies(BuildContext context) {
   final list = Get.put(movie_manage_service());
+  final ss = Get.put(movie_delete_service());
   return Obx(
     () => list.isLoading.value
         ? const Center(child: CircularProgressIndicator())
@@ -44,15 +48,17 @@ Widget list_movies(BuildContext context) {
                               print("$index");
                             },
                             trailing: IconButton(
-                                onPressed: () {
-                                  awsome(context, index);
-                                },
-                                icon: Icon(
-                                  Icons.delete,
-                                  color: re,
-                                )),
+                              onPressed: () {
+                                //   ss.get_Delete_movielist(ids: j.id);
+                                awsome(context, index);
+                              },
+                              icon: Icon(
+                                Icons.delete,
+                                color: re,
+                              ),
+                            ),
                             title: alltext(
-                                txt: list.dat['key1'][index],
+                                txt: j.title,
                                 col: bl,
                                 siz: 10.sp,
                                 wei: FontWeight.bold,

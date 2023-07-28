@@ -26,34 +26,56 @@ addmovie_sheet({
                 SizedBox(
                   height: 2.h,
                 ),
-                search_textfield(
-                    hint: "search your fav movies",
-                    ico: Icons.search,
-                    mess: "rnter that",
-                    cont: ser.con,
-                    type: TextInputType.text,
-                    help: "search"),
+                Row(
+                  children: [
+                    Expanded(
+                      child: search_textfield(
+                          hint: "search your fav movies",
+                          ico: Icons.search,
+                          mess: "rnter that",
+                          cont: ser.con,
+                          type: TextInputType.text,
+                          help: "search"),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: SizedBox(
+                        height: 5.h,
+                        width: 14.w,
+                        child: IconButton(
+                          onPressed: () {
+                            ser.con.clear();
+                            ser.reply!.results.clear();
+                            Get.back();
+                          },
+                          icon: Icon(
+                            Icons.close,
+                            color: blu,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
                 Obx(
                   () {
                     if (ser.isLoading.value) {
-                      return Center(
-                        child: alltext(
-                            txt: "search your favorite movies",
-                            col: bl,
-                            siz: 12.sp,
-                            wei: FontWeight.bold,
-                            max: 1),
+                      return Padding(
+                        padding: EdgeInsets.only(top: 15.h),
+                        child: Center(
+                          child: alltext(
+                              txt: "search your favorite movies",
+                              col: bl,
+                              siz: 12.sp,
+                              wei: FontWeight.bold,
+                              max: 1),
+                        ),
                       );
-                    } else if (ser.reply!.results.isEmpty) {
-                      return alltext(
-                          txt: "is empty",
-                          col: bl,
-                          siz: 15.sp,
-                          wei: FontWeight.bold,
-                          max: 1);
+                      // } else if (ser.isLoading.value) {
+                      //   return const  Center(child: CircularProgressIndicator());
                     } else {
                       return SizedBox(
-                        height: 90.h,
+                        height: 80.h,
                         width: 100.w,
                         child: ListView.builder(
                             itemCount: ser.reply?.results.length,
@@ -72,15 +94,10 @@ addmovie_sheet({
                                               img: data?.posterPath.toString());
                                           Get.back();
                                         },
-                                        icon: ad.isLoading.value
-                                            ? Icon(
-                                                Icons.add,
-                                                color: blu,
-                                              )
-                                            : Icon(
-                                                Icons.cancel,
-                                                color: bl,
-                                              )),
+                                        icon: Icon(
+                                          Icons.add,
+                                          color: blu,
+                                        )),
                                     leading: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: SizedBox(
@@ -105,7 +122,7 @@ addmovie_sheet({
                       );
                     }
                   },
-                )
+                ),
               ],
             ),
           ),

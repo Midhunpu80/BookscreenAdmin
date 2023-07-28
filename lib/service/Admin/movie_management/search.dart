@@ -3,7 +3,6 @@
 import 'dart:convert';
 
 import 'package:admin/constants/urls/endpoints.dart';
-import 'package:admin/constants/urls/token.dart';
 import 'package:admin/model/admin/moviemangement/movielistmodel.dart/search10.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +13,7 @@ dynamic jwt;
 
 class movie_search_service extends GetxController {
   var isLoading = false.obs;
+  RxMap<String, dynamic> rep = RxMap<String, dynamic>().obs.value;
 
   Search10? reply;
   TextEditingController con = TextEditingController();
@@ -31,6 +31,10 @@ class movie_search_service extends GetxController {
       if (response.statusCode == 200) {
         var datas = jsonDecode(response.body);
         reply = Search10.fromJson(datas);
+        var da = reply!.results.map((e) => e.originalTitle).toList();
+        rep({"one": da});
+        print("////////${rep["one"]}/////");
+
         print(
             "-----*****---------${reply?.results[0].title.toString()}----------*****-------");
         // "<---movies----${reply.data.map((e) => e.movieId).toList().toString()}------->");
@@ -55,9 +59,9 @@ class movie_search_service extends GetxController {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     con.clear();
+    reply!.results.clear();
   }
 
   @override

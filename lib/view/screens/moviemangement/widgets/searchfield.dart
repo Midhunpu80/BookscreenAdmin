@@ -18,6 +18,7 @@ Widget search_textfield(
     padding: const EdgeInsets.all(8.0),
     child: SizedBox(
       height: 9.h,
+      width: 20.w,
       child: TextFormField(
         style: TextStyle(color: bl),
         keyboardType: type,
@@ -26,7 +27,6 @@ Widget search_textfield(
             suffixIcon: IconButton(
                 onPressed: () {
                   ser.get_search_movielist(query: cont.text.toString());
-                  cont.clear();
                 },
                 icon: Icon(
                   Icons.send,

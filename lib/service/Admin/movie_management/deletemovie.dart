@@ -14,7 +14,7 @@ class movie_delete_service extends GetxController {
   var isLoading = false.obs;
 
   //late Movielist10 reply;
-  get_Delete_movielist({required String id, required String ids}) async {
+  get_Delete_movielist({required String ids}) async {
     final bdy = {"movieId": ids};
     try {
       isLoading(true);
@@ -49,6 +49,13 @@ class movie_delete_service extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    get_Delete_movielist(id: "", ids: "");
+    get_Delete_movielist(ids: "");
+    update();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    get_Delete_movielist(ids: "");
   }
 }
