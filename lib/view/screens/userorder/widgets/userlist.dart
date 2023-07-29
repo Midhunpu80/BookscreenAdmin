@@ -27,7 +27,7 @@ userorderlist() {
                     userdetaileds(txt: "${index + 1}", col: bl),
                     userdetaileds(txt: ors.reply.data[index].userName, col: bl),
                     userdetaileds(
-                        txt: ors.reply.data[index].status.toString(), col: gr),
+                        txt: ors.reply.data[index].status.toString(), col: bl.withOpacity(0.3)),
                     view_userdetails_order(context, index: index),
                     view_alldata_orders_movie(context, index: index),
                   ],

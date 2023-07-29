@@ -39,7 +39,8 @@ reportsdetails_popup({required BuildContext context, required var index}) {
                       one: "tei",
                       inder: index,
                       len: j.selectedSeats.length),
-                  reportcomplete_details(tit: "total", ans: j.total.toString()),
+                  reportcomplete_details(
+                      tit: "total", ans: "₹ ${j.total.toString()}"),
                 ],
               ),
             ),

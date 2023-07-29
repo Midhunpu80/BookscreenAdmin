@@ -38,10 +38,10 @@ addmovie_sheet({
                           help: "search"),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(2.0),
+                      padding: EdgeInsets.only(bottom: 7.h),
                       child: SizedBox(
-                        height: 5.h,
-                        width: 14.w,
+                        height: 1.h,
+                        width: 15.w,
                         child: IconButton(
                           onPressed: () {
                             ser.con.clear();

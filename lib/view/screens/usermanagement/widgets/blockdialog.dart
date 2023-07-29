@@ -1,6 +1,8 @@
 import 'package:admin/service/Admin/getalluser/blockuser/blockuser.dart';
 import 'package:admin/utils/colors.dart';
 import 'package:admin/utils/text.dart';
+import 'package:admin/view/screens/ownermanagement/widgets/block_owner.dart';
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -18,12 +20,15 @@ Widget blockbutton({
         if (bk.buttonSelections[index]) {
           bk.getblock(id: id);
           // ignore: avoid_print
-          block_messege(tit: "Blocked", mess: "user blocked", col: gr);
+          blockawsome(context,
+              dex: "User Blocked", type: DialogType.WARNING, tit: "Blocked");
+
           // ignore: avoid_print
           print("blocked the user");
         } else {
           bk.get_un_block(id: id);
-          block_messege(tit: "Unblock", mess: "user unblocked", col: blu);
+          blockawsome(context,
+              dex: "User Unblocked", type: DialogType.SUCCES, tit: "Unblock");
 
           // ignore: avoid_print
           print("user unblocked");

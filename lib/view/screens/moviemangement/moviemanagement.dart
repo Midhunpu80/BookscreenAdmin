@@ -33,7 +33,8 @@ class moviemanagement extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: gy.withOpacity(0.3),
+      backgroundColor: or
+  ,
       appBar: AppBar(
         toolbarHeight: 10.h,
         centerTitle: true,
